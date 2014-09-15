@@ -18,9 +18,11 @@ block content
         hr
         if user && user.canAccessKeystone
             p
-                a(href='/keystone/signin').btn.btn-lg.btn-primary Open the Admin UI
+                a(href='/gallery', style='margin-right: 10px').btn.btn-lg.btn-primary Work
+                a(href='/keystone/signin').btn.btn-link Open the Admin UI
         else
             p
-                a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
+                a(href='/gallery', style='margin-right: 10px').btn.btn-lg.btn-primary Work
+                a(href='/keystone/signin').btn.btn-link Sign in
 
 
