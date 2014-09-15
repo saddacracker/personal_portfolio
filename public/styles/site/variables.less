@@ -1,3 +1,62 @@
 // Override Bootstrap variables in this file, e.g.
 
-@font-size-base: 14px;
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+@black:                  #121314;
+
+@gray-darker:            lighten(@black, 13.5%); 
+@gray-dark:              lighten(@black, 20%);   
+@gray:                   lighten(@black, 33.5%); 
+@gray-light:             lighten(@black, 46.7%); 
+@gray-lighter:           lighten(@black, 75.5%); 
+@gray-lightest:          lighten(@black, 93.5%); 
+
+@brand-primary:         #96d600;
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
+
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg:               #121314;
+//** Global text color on `<body>`.
+@text-color:            #88898c;
+
+//** Global textual link color.
+@link-color:            @brand-primary;
+//** Link hover color set via `darken()` function.
+@link-hover-color:      darken(@link-color, 15%);
+
+
+// Inverted navbar
+// Reset inverted navbar basics
+@navbar-inverse-color:                      @gray;
+@navbar-inverse-bg:                         @gray-darker;
+@navbar-inverse-border:                     @gray-darker;
+
+// Inverted navbar links
+@navbar-inverse-link-color:                 @gray-light;
+@navbar-inverse-link-hover-color:           @gray-lighter;
+@navbar-inverse-link-hover-bg:              transparent;
+@navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-bg:             transparent;
+@navbar-inverse-link-disabled-color:        @gray-dark;
+@navbar-inverse-link-disabled-bg:           transparent;
+
+// Inverted navbar brand label
+@navbar-inverse-brand-color:                @brand-primary;
+@navbar-inverse-brand-hover-color:          @brand-primary;
+@navbar-inverse-brand-hover-bg:             transparent;
+
+// Inverted navbar toggle
+@navbar-inverse-toggle-hover-bg:            #333;
+@navbar-inverse-toggle-icon-bar-bg:         #fff;
+@navbar-inverse-toggle-border-color:        #333;
