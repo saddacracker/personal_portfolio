@@ -1,0 +1,21 @@
+// jumbotron overrides
+.container .jumbotron {
+    border-radius: 0px;
+}
+
+
+// button overrides
+.btn {
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; 0px);
+}
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; 0px);
+}
+.btn-sm {
+  // line-height: ensure proper height of button next to small input
+  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; 0px);
+}
+.btn-xs {
+  .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; 0px);
+}
