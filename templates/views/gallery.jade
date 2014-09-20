@@ -3,16 +3,23 @@ extends ../layouts/default
 block intro
     .container
         h1 Gallery
+        
     
 block content
+    .container.debug
+        div= data.tags
+        
     .container
-        if galleries.length
-            each gallery in galleries
+        if data.galleries.length
+            each gallery in data.galleries
                 h2= gallery.name
                     if gallery.content.brief
                         p= gallery.content.brief
                     if gallery.publishedDate
                         .pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
+                    //- if gallery.tags && gallery.tags.length
+                    //-     each tag, tag_i in gallery.tags
+                    //-         a(href='/blog/' + tag.key)= tag.name
                 
                 .row.gallery-images
                     if gallery.heroImage.exists
