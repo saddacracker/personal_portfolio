@@ -16,8 +16,8 @@ var Gallery = new keystone.List('Gallery', {
 Gallery.add({
     name: { type: String, required: true },
     content: {
-        brief: { type: Types.Html, wysiwyg: true, height: 150 },
-        extended: { type: Types.Html, wysiwyg: true, height: 400 }
+        brief: { type: Types.Html, wysiwyg: false, height: 50 },
+        extended: { type: Types.Html, wysiwyg: false, height: 150 }
     },
     publishedDate: { type: Date, default: Date.now },
     heroImage: { type: Types.CloudinaryImage },
