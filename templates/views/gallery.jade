@@ -1,7 +1,7 @@
 extends ../layouts/default
 
 mixin item(item)
-    h2: a(href='/gallery/item/' + item.slug)= item.title
+    h2: a(href='/gallery/item/' + item.key)= item.name
     if item.content.brief
         p!= item.content.brief
     if item.publishedDate

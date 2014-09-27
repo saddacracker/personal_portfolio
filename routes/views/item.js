@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
     view.on('init', function(next) {
         
         var q = keystone.list('Gallery').model.findOne({
-            slug: locals.filters.item
+            key: locals.filters.item
         });
         
         q.exec(function(err, result) {
