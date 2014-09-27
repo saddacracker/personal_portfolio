@@ -7,11 +7,14 @@ var keystone = require('keystone'),
  */
 
 var Gallery = new keystone.List('Gallery', {
-    autokey: { from: 'name', path: 'key', unique: true }
+    //autokey: { from: 'name', path: 'key', unique: true }
+    // autokey: { path: 'slug', from: 'name', unique: true }
+	map: { name: 'title' },
+	autokey: { path: 'slug', from: 'title', unique: true }
 });
 
 Gallery.add({
-    name: { type: String, required: true },
+    title: { type: String, required: true },
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 150 },
         extended: { type: Types.Html, wysiwyg: true, height: 400 }

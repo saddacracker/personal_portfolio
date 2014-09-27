@@ -1,34 +1,39 @@
 extends ../layouts/default
 
+mixin item(item)
+    h2: a(href='/gallery/item/' + item.slug)= item.title
+    if item.content.brief
+        p!= item.content.brief
+    if item.publishedDate
+        .pull-right.text-muted= item._.publishedDate.format('Do MMM YYYY')
+    //- if gallery.tags && gallery.tags.length
+    //-     each tag, tag_i in gallery.tags
+    //-         a(href='/blog/' + tag.key)= tag.name
+    p= item.slug
+    .row.gallery-images
+        if item.heroImage.exists
+            .col-sm-4.col-md-4.gallery-image: img(src=item._.heroImage.limit(680,680)).img-rounded
+
 block intro
     .container
-        h1 Gallery
+        h1 Gallery Intro Block
         
     
 block content
-    .container.debug
+    //- .container.debug
         div= data.tags
         
     .container
         if data.galleries.length
-            each gallery in data.galleries
-                h2= gallery.name
-                    if gallery.content.brief
-                        p= gallery.content.brief
-                    if gallery.publishedDate
-                        .pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
-                    //- if gallery.tags && gallery.tags.length
-                    //-     each tag, tag_i in gallery.tags
-                    //-         a(href='/blog/' + tag.key)= tag.name
+            each item in data.galleries
+                +item(item)
                 
-                .row.gallery-images
-                    if gallery.heroImage.exists
-                        .col-sm-4.col-md-4.gallery-image: img(src=gallery._.heroImage.limit(680,680)).img-rounded
-                        .col-sm-8.col-md-8: .row
-                            each image in gallery.images
-                                .col-xs-4.col-sm-4.col-md-3.gallery-image: img(src=image.limit(300,300)).img-rounded
-                    else
-                        each image in gallery.images
-                            .col-xs-6.col-sm-4.col-md-3.gallery-image: img(src=image.limit(300,300)).img-rounded
+                
+                    //-     .col-sm-8.col-md-8: .row
+                    //-         each image in gallery.images
+                    //-             .col-xs-4.col-sm-4.col-md-3.gallery-image: img(src=image.limit(1140,1140)).img-rounded
+                    //- else
+                    //-     each image in gallery.images
+                    //-         .col-xs-6.col-sm-4.col-md-3.gallery-image: img(src=image.limit(1140,1140)).img-rounded
         else
             h3.text-muted There are no image galleries yet.

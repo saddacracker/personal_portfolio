@@ -16,7 +16,7 @@ exports = module.exports = function(req, res) {
     // Load all tags
     view.on('init', function(next) {
     
-        var q = keystone.list('Tag').model.find().sort('name');
+        var q = keystone.list('Tag').model.find().sort('title');
 
         q.exec(function(err, results) {
             locals.data.tags = results;
