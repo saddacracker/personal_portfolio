@@ -1,3 +1,25 @@
+// Navbar
+.navbar-nav.navbar-left {
+    text-transform: uppercase;
+    
+    .active {
+        /* Small devices (tablets, 768px and up) */
+        @media (min-width: @screen-sm-min) {
+            border-bottom: 2px solid @brand-primary;
+        }
+
+        /* Medium devices (desktops, 992px and up) */
+        @media (min-width: @screen-md-min) {
+            border-bottom: 2px solid @brand-primary;
+        }
+
+        /* Large devices (large desktops, 1200px and up) */
+        @media (min-width: @screen-lg-min) {
+            border-bottom: 2px solid @brand-primary;
+        }
+    }
+}
+
 // jumbotron overrides
 .jumbotron {
     
@@ -84,5 +106,29 @@
     .gallery-hero {
         width: 100%;
         padding-right: 15px;
+    }
+}
+
+.gallery-item-detail-page {
+    .gallery-image {
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid @gray-darker;
+    }
+    
+    .gallery-item-details {
+        
+        .gallery-detail-title {
+            color: @gray-lighter;
+            font-weight: 200;
+            font-size: 24px;
+        }
+        
+        .gallery-detail-description {
+            font-size: 16px;
+            font-weight: 200;
+            color: @gray;
+            line-height: 1.4;
+        }
     }
 }

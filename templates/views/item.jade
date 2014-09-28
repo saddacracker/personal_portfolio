@@ -1,15 +1,18 @@
 extends ../layouts/default
 
 block content
-    .container: .row: .col-md-12
+    .container.gallery-item-detail-page: .row: .col-md-12
         if !data.item
-            h2 Invalid Item
+            h2 Dayhum! Something just aint right.
         else
-            h1= data.item.name
-            
-            .row.gallery-images
-                each image in data.item.images
-                    .col-md-12.gallery-image: img(src=image.limit(1140,1140)).img-rounded
+            .row
+                .col-md-3.gallery-item-details
+                    h1.gallery-detail-title= data.item.name
+                    p.gallery-detail-description= data.item.content.extended
+                
+                .col-md-9   
+                    each image in data.item.images
+                        .gallery-image: img(src=image.limit(1140,2000))
 
 //- block content
 //-     .container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2

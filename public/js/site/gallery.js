@@ -8,6 +8,6 @@ $(function(){
     //fade
     var items = $('.item');
     items.on('mouseenter mouseleave', function(e) {
-        items.not(this).stop(true).fadeTo('fast', e.type=='mouseenter'?0.2:1);
+        items.not(this).stop(true).fadeTo('fast', e.type=='mouseenter'?0.4:1);
     });
 });
