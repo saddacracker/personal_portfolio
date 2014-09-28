@@ -4,13 +4,13 @@ mixin item(item, i)
     .item.item-gallery
         if item.heroImage.exists
             .gallery-hero: a(href='/gallery/item/' + item.key)
-                img(src=item._.heroImage.limit(680,680))
+                img(src=item._.heroImage.limit(760,760))
         .item-inner
-            h2: a(href='/gallery/item/' + item.key)= item.name
+            h2.item-title: a(href='/gallery/item/' + item.key)= item.name
             if item.content.brief
-                p!= item.content.brief
+                p.item-description!= item.content.brief
             if item.publishedDate
-                .item-date= item._.publishedDate.format('Do MMM YYYY')
+                span.item-date= item._.publishedDate.format('Do MMM YYYY')
             //- future home of tags
             //- 
             //- if gallery.tags && gallery.tags.length
@@ -40,9 +40,7 @@ block content
             
             
             
-block js
-    script(src='/js/lib/isotope.pkgd.min.js')
-    
+block js    
     script(type='text/javascript').
         $(function(){
             $galleryContainer = $('.gallery.container');
