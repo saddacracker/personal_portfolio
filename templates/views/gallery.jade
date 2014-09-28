@@ -1,37 +1,52 @@
 extends ../layouts/default
 
-mixin item(item)
-    .post.item.col-md-4: .well
-        h2: a(href='/gallery/item/' + item.key)= item.name
-        if item.content.brief
-            p!= item.content.brief
-        if item.publishedDate
-            .pull-right.text-muted= item._.publishedDate.format('Do MMM YYYY')
-        //- if gallery.tags && gallery.tags.length
-        //-     each tag, tag_i in gallery.tags
-        //-         a(href='/blog/' + tag.key)= tag.name
-        p= item.slug
-        .row.gallery-images
-            if item.heroImage.exists
-                .col-sm-4.col-md-4.gallery-image: img(src=item._.heroImage.limit(680,680)).gallery-hero
+mixin item(item, i)
+    .item.item-gallery
+        if item.heroImage.exists
+            .gallery-hero: a(href='/gallery/item/' + item.key)
+                img(src=item._.heroImage.limit(680,680))
+        .item-inner
+            h2: a(href='/gallery/item/' + item.key)= item.name
+            if item.content.brief
+                p!= item.content.brief
+            if item.publishedDate
+                .item-date= item._.publishedDate.format('Do MMM YYYY')
+            //- future home of tags
+            //- 
+            //- if gallery.tags && gallery.tags.length
+            //-     each tag, tag_i in gallery.tags
+            //-         a(href='/blog/' + tag.key)= tag.name
+        
+
 
 block intro
     .container
-        h1 Gallery Intro Block
+        //- h1 Gallery Intro Block
         
     
 block content
     //- .container.debug
         div= data.tags
         
-    .container: .isotope.row
+    .gallery.container.isotope
         if data.galleries.length
             - i = 10
             - while(i--)
                 each item in data.galleries
-                    +item(item)
+                    +item(item, i)
                 
         else
             h3.text-muted There are no image galleries yet.
             
             
+            
+block js
+    script(src='/js/lib/isotope.pkgd.min.js')
+    
+    script(type='text/javascript').
+        $(function(){
+            $galleryContainer = $('.gallery.container');
+            $galleryContainer.isotope({
+                  itemSelector : '.item-gallery'
+            });
+        });

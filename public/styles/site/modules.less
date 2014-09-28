@@ -23,9 +23,45 @@
   .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; 0px);
 }
 
-// well
-.well {
+// GALLERY
+.item {
     border-radius: 0px;
-    background: @gray-darkest;
-    border: 1px solid @gray-darkest;
+    box-sizing: border-box;
+    
+    img {
+        max-width: 100%;
+    }
+    
+    .item-inner {
+        box-sizing: border-box;
+        background: @gray-darkest;
+        padding: 15px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        
+        
+    }
 }
+
+.item-gallery {
+    
+    
+    // 1140/3
+    // 940/3
+    // 710/2
+    // mobile - full
+    width: 380px;
+    
+    .gallery-hero {
+        width: 100%;
+        padding-right: 15px;
+    }
+}
+
+// .gallery {
+//     .item {
+//         width:33%;
+//         padding: 0px;
+//     }
+// }
