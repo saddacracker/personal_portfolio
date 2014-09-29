@@ -1,4 +1,4 @@
-$(function(){
+$(window).load(function(){
     // isotope
     $galleryContainer = $('.gallery.container');
     $galleryContainer.isotope({
