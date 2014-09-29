@@ -21,7 +21,7 @@ exports = module.exports = function(req, res) {
         
         var q = keystone.list('Gallery').model.findOne({
             key: locals.filters.item
-        });
+        }).populate('tags');
         
         q.exec(function(err, result) {
             locals.data.item = result;
