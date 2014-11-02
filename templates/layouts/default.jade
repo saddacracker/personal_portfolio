@@ -86,7 +86,10 @@ html
         .container: #footer
 
             //- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-            p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
+            p &copy 1999-
+                span.js-year 
+                |  John Cardwell  
+                a(href='https://github.com/saddacracker/personal_portfolio' target='_blank') Source 
 
 
         //- JAVASCRIPT
@@ -103,8 +106,14 @@ html
         //- For gallery masonry type layout
         script(src='/js/lib/isotope.pkgd.min.js')
         
+        //- Site Utils
+        script(src='/js/site/utils.js')
+        
+        //- VIEW LOGIC
+        
         //- Scripts specific to views
         script(src='/js/site/gallery.js')
+        script(src='/js/site/contact.js')
 
         //- The KeystoneJS Content Editor provides support for ks-editable data attributes,
         //- which generate links to edit content for users who can access Keystone
