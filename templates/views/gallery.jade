@@ -30,10 +30,8 @@ block content
         
     .gallery.container.isotope
         if data.galleries.length
-            - i = 10
-            - while(i--)
-                each item in data.galleries
-                    +item(item, i)
+            each item in data.galleries
+                +item(item, i)
                 
         else
             h3.text-muted There are no image galleries yet.
