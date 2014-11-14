@@ -42,12 +42,34 @@ html
     body
 
         //- HEADER
-        #header: .container
+        #header
 
             //- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
             //- ... or completely change this header to suit your design.
+            .nav-top.hidden-xs
+                .container: .row
+                    .col-lg-6.col-sm-6.col-xs-6.col-md-6
+                        .pull-left
+                            a.nav-top-brand(href='/')
+                                img(src='/images/logo-top-nav.png').brand-logo
+                                    
+                    .col-lg-6.col-sm-6.col-xs-6.col-md-6
+                        .pull-right
+                            ul.user-menu
+                                li: a(href="tel:+14353506392") 
+                                    i.glyphicon.glyphicon-phone-alt
+                                    span 425-350-6392
+                                li
+                                    if user && user.canAccessKeystone
+                                        a(href="/keystone/signin") 
+                                            i.glyphicon.glyphicon-user
+                                            span.hidden-xs Admin UI
+                                    else
+                                        a(href="/keystone/signin") 
+                                            i.glyphicon.glyphicon-user
+                                            span.hidden-xs Sign in
 
-            div(role="navigation").navbar.navbar-inverse.navbar-fixed-top
+            div(role="navigation").navbar.navbar-inverse
                 .container
                     .navbar-header
                         button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
@@ -57,6 +79,7 @@ html
                             span.icon-bar
                         a.navbar-brand(href='/')
                             img(src='/images/logo-header.png').brand-logo
+
                     .collapse.navbar-collapse
                         ul.nav.navbar-nav.navbar-left
                             each link in navLinks
@@ -117,12 +140,13 @@ html
         
         //- Site Utils
         script(src='/js/site/utils.js')
-        
-        //- VIEW LOGIC
-        
-        //- Scripts specific to views
+                
+        //- Views
         script(src='/js/site/gallery.js')
         script(src='/js/site/contact.js')
+        
+        //- Modules
+        script(src='/js/site/nav.js')
 
         //- The KeystoneJS Content Editor provides support for ks-editable data attributes,
         //- which generate links to edit content for users who can access Keystone

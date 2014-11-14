@@ -1,6 +1,17 @@
 // Navbar
 .navbar-nav.navbar-left {
     text-transform: uppercase;
+    li {
+        a {
+            padding-top: 9px;
+            padding-bottom: 9px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            border-left: darken(@gray-darker, 7%) 1px solid;
+            border-right: darken(@gray-darker, 7%) 1px solid;
+            margin-left: -1px;
+        }
+    }
     
     .active {
         /* Small devices (tablets, 768px and up) */
@@ -20,8 +31,42 @@
     }
 }
 
+.navbar-collapse {
+    /* Large devices (large desktops, 1200px and up) */
+    @media (min-width: @screen-sm-min) {
+        padding: 0px;
+    }
+}
+
+.nav-top {
+    background: @black;
+    height: 75px;
+}
 .navbar-brand {
     margin-top: -4px;
+}
+
+.user-menu li {
+    display: block;
+    float: left;
+    margin-top: 37px;
+    
+    a {
+        color: @gray;
+        display: block;
+        float: right;
+        line-height: 30px;
+        padding: 0 30px 0 0;
+        text-decoration: none;
+        
+        i {
+            padding-right: 8px;
+        }
+    }
+    
+    &:last-child a {
+        padding-right: 0px;
+    }
 }
 
 // jumbotron overrides
