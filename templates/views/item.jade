@@ -9,14 +9,16 @@ block content
                 .col-md-3.gallery-item-details
                     h1.gallery-detail-title= data.item.name
                     p.gallery-detail-description= data.item.content.extended
+                    
+                    .gallery-item-tags
+                        if data.item.tags && data.item.tags.length
+                            each tag, tag_i in data.item.tags
+                                span.label.label-default.label-tag= tag.name
                 
-                .col-md-8   
+                .col-md-9   
                     each image in data.item.images
                         .gallery-image: img(src=image.limit(1140,2000))
-                .col-md-1
-                    if data.item.tags && data.item.tags.length
-                        each tag, tag_i in data.item.tags
-                            span.label.label-default.label-tag= tag.name
+
                             
 
 //- block content

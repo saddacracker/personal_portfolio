@@ -22,7 +22,8 @@ block intro
     //-     h1= data.category ? data.category.name : 'Blog'
 
 block content
-    .container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+    .container: .row
+        .col-sm-12.col-md-9
             if filters.category && !data.category
                 h3.text-muted Invalid Category.
             else
@@ -56,15 +57,14 @@ block content
                                 li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
                 else
                     if data.category
-                        h3.text-muted There are no posts in the category #{data.category.name}.
+                        h3.text-muted There are no posts in the category #{data.category.name}, Bruh.
                     else
                         h3.text-muted There are no posts yet.
         
         //- Categories
-        //- if data.categories.length
-        //-     .col-sm-4.col-md-3
-        //-         h2 Categories
-        //-         .list-group(style='margin-top: 70px;')
-        //-             a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
-        //-             each cat in data.categories
-        //-                 a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
+        if data.categories.length
+            .col-md-3.hidden-sm
+                .list-group
+                    a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
+                    each cat in data.categories
+                        a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name

@@ -105,7 +105,7 @@
 // BLOG
 .post-hero-container {
     img {
-        max-width: 100%;
+        width: 100%;
     }
 }
 .post-hero-details {
@@ -160,6 +160,12 @@
         border: 1px solid @gray-darker;
         border-radius: 0px;
     }
+}
+
+.label-post {
+    padding: 12px 16px;
+    display: inline-block;
+    position: absolute;
 }
 
 // GALLERY
@@ -229,6 +235,15 @@
     font-weight: 400;
     display: inline-block;
     margin-right: 1px;
+}
+
+// LIST 
+.list-group-item,
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    border-top: darken(@gray-darker, 7%) 1px solid;
+    border-bottom: darken(@gray-darker, 7%) 1px solid;
 }
 
 
