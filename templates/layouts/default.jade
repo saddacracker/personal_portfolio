@@ -15,6 +15,9 @@ html
         //- Google Fontz
         
         link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css')
+            
+        //- Font Awesome Icons
+        link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet')
 
         //- Customise the stylesheet for your site by editing /public/styles/site.less
         //- All .less files will be automatically compiled and minified in production.
@@ -57,17 +60,13 @@ html
                         .pull-right
                             ul.user-menu
                                 li: a(href="tel:+14353506392") 
-                                    i.glyphicon.glyphicon-phone-alt
-                                    span 425-350-6392
-                                li
-                                    if user && user.canAccessKeystone
-                                        a(href="/keystone/signin") 
-                                            i.glyphicon.glyphicon-user
-                                            span.hidden-xs Admin UI
-                                    else
-                                        a(href="/keystone/signin") 
-                                            i.glyphicon.glyphicon-user
-                                            span.hidden-xs Sign in
+                                    i.fa.fa-phone.fa-lg
+                                    span.user-menu-seperator 425-350-6392
+                                li: a(href='https://dribbble.com/saddacracker' target='_blank') 
+                                    i.fa.fa-dribbble.fa-lg
+                                li: a(href='http://lnkd.in/bp-J6FS' target='_blank')
+                                    i.fa.fa-linkedin.fa-lg
+ 
 
             div(role="navigation").navbar.navbar-inverse
                 .container
@@ -119,9 +118,20 @@ html
                     span.js-year 
                     |  John Cardwell  
             .pull-right
-                a(href='https://github.com/saddacracker/personal_portfolio' target='_blank').footer-link Source 
-                a(href='https://dribbble.com/saddacracker' target='_blank').footer-link Dribbble  
-                a(href='http://lnkd.in/bp-J6FS' target='_blank').footer-link LinkedIn  
+                ul.footer-menu
+                    li
+                        a(href='https://github.com/saddacracker/personal_portfolio' target='_blank').footer-link 
+                            i.fa.fa-git 
+                            | Source Code
+                    li
+                        if user && user.canAccessKeystone
+                            a(href="/keystone/signin") 
+                                i.fa.fa-user 
+                                | Admin UI
+                        else
+                            a(href="/keystone/signin") 
+                                i.fa.fa-user 
+                                | Sign in 
 
 
         //- JAVASCRIPT
