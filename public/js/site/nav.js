@@ -1,5 +1,5 @@
 $(function () {
-    $(".navbar-brand").hide();
+    //$(".navbar-brand").hide();
     
     $(document).on( 'scroll', function(){
         console.log('scroll top : ' + $(window).scrollTop());
